@@ -1,16 +1,16 @@
-import useFetchData from "../../hooks/useFetchData";
+import PropTypes from "prop-types";
 import TableRow from "./TableRow";
 
-function Table() {
-    // const [data, setData] = useState([]);
+function Table({ data }) {
 
-    const [data] = useFetchData("./src/assets/data/pokemon.json");
+
     const pokemons = data.map(item => <TableRow
         key={item.id}
         {...item}
-        type={item.type.join(", ")} />
+        type={item.type.join(", ")}
+    />
     );
-
+    console.log(data)
     return (
         <table>
             <thead>
@@ -33,4 +33,8 @@ function Table() {
         </table>
     )
 }
-export default Table
+export default Table;
+
+Table.propTypes = {
+    data: PropTypes.array
+}
