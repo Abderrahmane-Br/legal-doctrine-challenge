@@ -7,7 +7,7 @@ import Pagination from "./components/pagination/Pagination";
 
 function App() {
 
-	const [pokemonData] = useFetchData("./src/assets/data/pokemon.json");
+	const [pokemonData] = useFetchData("./src/assets/data/pokemon.json", derivePower);
 	const [searchResults, setSearchResults] = useState([]);
 	const [visibleRows, setVisibleRows] = useState([]);
 
@@ -45,10 +45,16 @@ function search(currentList, nameQuery, powerQuery) {
 	if (!nameQuery && !powerQuery)
 		return currentList;
 	else if (!nameQuery)
-		return currentList.filter(item => item.speed >= powerQuery);
+		return currentList.filter(item => item.power >= powerQuery);
 	else if (!powerQuery)
 		return currentList.filter(item => item.name == nameQuery);
 	else
-		return currentList.filter(item => item.name == nameQuery && item.speed >= powerQuery);
+		return currentList.filter(item => item.name == nameQuery && item.power >= powerQuery);
+}
 
+function derivePower(data) {
+	return data.map(item => ({
+		...item,
+		power: item.hp + item.attack + item.defense + item.speed + item.special_attack + item.special_defense
+	}))
 }

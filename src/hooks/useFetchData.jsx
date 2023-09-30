@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 
-function useFetchData(url) {
+function useFetchData(url, transformer = null) {
 
     const [data, setData] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
@@ -14,6 +14,9 @@ function useFetchData(url) {
             .then(data => {
 
                 setIsLoading(false);
+                if (transformer)
+                    data = transformer(data);
+                console.log(data)
                 setData(data);
             })
             .catch(err => {
