@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 
 function usePaginate(data, size = 5) {
 
-    console.log('usePaginate')
     const [pagSize, setPagSize] = useState(size);
     const [currentPage, setCurrentPage] = useState(1);
     const [isFirstPage, setIsFirstPage] = useState(true);
