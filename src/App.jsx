@@ -3,6 +3,7 @@ import SearchTool from "./components/search-tool/SearchTool";
 import Table from "./components/table/Table";
 import SearchField from "./components/search-tool/SearchField";
 import { useState, useEffect } from "react";
+import Pagination from "./components/pagination/Pagination";
 
 function App() {
 
@@ -32,7 +33,8 @@ function App() {
 				setQuery={setPowerQuery}
 			/>
 		</SearchTool>
-		<Table data={searchResults}></Table>
+		<Table data={visibleRows}></Table>
+		<Pagination data={searchResults} setVisibleRows={setVisibleRows} />
 	</>;
 }
 
