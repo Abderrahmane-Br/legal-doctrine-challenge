@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { PropTypes } from "prop-types";
+import xIcon from "../../assets/images/x.svg";
 
 function SearchField({
     icon,
@@ -25,6 +26,11 @@ function SearchField({
                 value={value}
                 onChange={handleChange}
             />
+            {value.length > 0 && <img
+                src={xIcon}
+                alt=""
+                onClick={() => { setValue(""); setQuery("") }}
+            />}
         </div>
     )
 }
