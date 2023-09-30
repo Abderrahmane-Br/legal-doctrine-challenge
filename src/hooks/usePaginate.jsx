@@ -21,6 +21,9 @@ function usePaginate(data, size = 5) {
         !isFirstPage && setCurrentPage(currentPage => currentPage - 1);
     }
 
+    function getFirstPage() {
+        setCurrentPage(1);
+    }
     useEffect(() => {
 
         if (currentPage >= Math.ceil(dataLen / pagSize))
@@ -50,7 +53,8 @@ function usePaginate(data, size = 5) {
         setPagSize,
         nextPage,
         previousPage,
-        setCurrentPage
+        setCurrentPage,
+        getFirstPage
     }
 }
 export default usePaginate

@@ -14,12 +14,15 @@ function Pagination({ data, setVisibleRows }) {
         isLastPage,
         setPagSize,
         nextPage,
-        previousPage
+        previousPage,
+        getFirstPage
     } = usePaginate(data);
 
     useEffect(() => {
         setVisibleRows(listSlice);
     }, [data, listSlice, pagSize]);
+
+    useEffect(() => { getFirstPage() }, [data]);
 
     return (
         <div>
