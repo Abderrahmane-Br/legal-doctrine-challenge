@@ -9,9 +9,10 @@ function App() {
 
 	const [pokemonData] = useFetchData("./src/assets/data/pokemon.json");
 	const [searchResults, setSearchResults] = useState([]);
+	const [visibleRows, setVisibleRows] = useState([]);
 
-	const [nameQuery, setNameQuery] = useState("")
-	const [powerQuery, setPowerQuery] = useState("")
+	const [nameQuery, setNameQuery] = useState("");
+	const [powerQuery, setPowerQuery] = useState("");
 
 	useEffect(() => {
 		const results = search(pokemonData, nameQuery, powerQuery);
@@ -40,15 +41,14 @@ function App() {
 
 export default App;
 
-function search(data, nameQuery, powerQuery) {
-
+function search(currentList, nameQuery, powerQuery) {
 	if (!nameQuery && !powerQuery)
-		return data;
+		return currentList;
 	else if (!nameQuery)
-		return data.filter(item => item.speed >= powerQuery);
+		return currentList.filter(item => item.speed >= powerQuery);
 	else if (!powerQuery)
-		return data.filter(item => item.name == nameQuery);
+		return currentList.filter(item => item.name == nameQuery);
 	else
-		return data.filter(item => item.name == nameQuery && item.speed >= powerQuery);
+		return currentList.filter(item => item.name == nameQuery && item.speed >= powerQuery);
 
 }

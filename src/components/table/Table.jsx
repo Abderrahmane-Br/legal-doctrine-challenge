@@ -10,7 +10,6 @@ function Table({ data }) {
         type={item.type.join(", ")}
     />
     );
-    console.log(data)
     return (
         <table>
             <thead>
