@@ -13,9 +13,9 @@
 ---
 ## 📍 Overview
 
-Completed Legal Doctrine assignement including all required tasks and extra features added for a better user experience. The solution tries to follow the SOLID principles and implements ReactJS best practices.
+Completed and deployed Legal Doctrine assignement including all required tasks and extra features added for a better user experience. The solution tries to follow the SOLID principles and implements ReactJS best practices.
 
-🌐 Live app: <a href="https://legal-doctrine-challenge.netlify.app/" target="_blank">**Demo : legal-doctrine-challenge.netlify.app**</a>
+🌐 Live app on Netlify: <a href="https://legal-doctrine-challenge.netlify.app/" target="_blank">**Demo : legal-doctrine-challenge.netlify.app**</a>
 
 Stack:
 - ReactJS
