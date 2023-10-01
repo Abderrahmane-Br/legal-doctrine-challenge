@@ -13,7 +13,7 @@ import "./styles/main.scss";
 
 function App() {
 
-	const [pokemonData, isLoading] = useFetchData("./src/assets/data/pokemon.json", derivePower);
+	const [pokemonData, isLoading, error] = useFetchData("./src/assets/data/pokemon.json", derivePower);
 	const [searchResults, setSearchResults] = useState([]);
 	const [visibleRows, setVisibleRows] = useState([]);
 
@@ -22,7 +22,6 @@ function App() {
 
 	const minPower = visibleRows.reduce((a, b) => a < b.power ? a : b.power, Infinity);
 	const maxPower = visibleRows.reduce((a, b) => a > b.power ? a : b.power, -1);
-
 
 	useEffect(() => {
 		const results = search(pokemonData, nameQuery, powerQuery);
@@ -57,7 +56,8 @@ function App() {
 		</SearchTool>
 		<Table data={visibleRows} isLoading={isLoading}></Table>
 
-		{(!isLoading && visibleRows.length === 0) && <div className="info-msg">No matching Pokemons were found!</div>}
+		{(!isLoading && visibleRows.length === 0 && !error) && <div className="info-msg">No matching Pokemons were found!</div>}
+		{error && <div className="error-msg">{error.toString()}</div>}
 
 		{
 			isLoading
