@@ -18,7 +18,7 @@ function SearchField({
 
     return (
         <div className="search-tool__field">
-            <img src={icon} className="search-tool__field__icon" />
+            <img src={icon} alt="search icon" className="search-tool__field__icon" />
             <input
                 type="text"
                 name={name}
@@ -29,7 +29,7 @@ function SearchField({
             />
             {value.length > 0 && <img
                 src={xIcon}
-                alt=""
+                alt="clear search icon"
                 className="search-tool__field__x-icon"
                 onClick={() => { setValue(""); setQuery("") }}
             />}

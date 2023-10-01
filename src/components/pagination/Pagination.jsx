@@ -43,12 +43,14 @@ function Pagination({ data, setVisibleRows }) {
             <span> {`${start} - ${end} of ${dataLen}`} </span>
             <img
                 src={leftChevron}
+                alt="pagination nav icon"
                 onClick={previousPage}
                 className={`pagination__page-nav ${isFirstPage ? "--inactive" : ""}`}
             />
             <span>{currentPage}</span>
             <img
                 src={rightChevron}
+                alt="pagination nav icon"
                 onClick={nextPage}
                 className={`pagination__page-nav ${isLastPage ? "--inactive" : ""}`}
             />
