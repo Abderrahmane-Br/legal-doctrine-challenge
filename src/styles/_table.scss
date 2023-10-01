@@ -1,0 +1,25 @@
+.pokemon-table {
+    border: none;
+    border-radius: max(5px, .6em);
+    box-shadow: 0px 7px 20px 3px rgb(237 237 237 / 72%);
+    font-size: clamp(10px, 0.8vw, 2em);
+    border-collapse: collapse;
+    margin-bottom: max(7px, 1.5vw);
+
+
+    thead tr {
+        background-color: rgba(224, 223, 223, 0.279);
+        color: rgb(130, 114, 114);
+        font-weight: 600;
+        font-size: clamp(8px, 0.7vw, 1.8em);
+    }
+
+    th,
+    td {
+        padding: max(1px, 0.9vw) max(1px, 0.7vw);
+        border: none;
+        border-bottom: 1px solid rgb(238, 235, 235);
+        text-align: center;
+    }
+
+}

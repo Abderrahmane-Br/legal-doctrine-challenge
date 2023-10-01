@@ -11,7 +11,7 @@ function Table({ data }) {
     />
     );
     return (
-        <table>
+        <table className="pokemon-table">
             <thead>
                 <tr>
                     <th>ID</th>
