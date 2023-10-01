@@ -3,14 +3,17 @@
 
 ## 📖 Table of Contents
 
-- [📖 Table of Contents](#table-of-contents)
+- [📖 Table of Contents](#-table-of-contents)
 - [📍 Overview](#-overview)
 - [🤖 Features](#-features)
 - [🚀 Performance](#-performance)
+- [📜 App responsiveness](#-app-responsiveness)
+- [💡 Solution review and possible improvements](#-solution-review-and-possible-improvements)
 
 ---
 ## 📍 Overview
-Completed Legal Doctrine assignement. 
+
+Completed Legal Doctrine assignement including all required tasks and extra features added for a better user experience. The solution tries to follow the SOLID principles and implements ReactJS best practices.
 
 🌐 Live app: <a href="https://legal-doctrine-challenge.netlify.app/" target="_blank">**Demo : legal-doctrine-challenge.netlify.app**</a>
 
@@ -75,11 +78,28 @@ The choice of this mechanism boils down to :
 
 While building the **Search functionality** I attempted to debounce changing the table results on each key stroke, after implementing the debouncing it turned out it causes more component rerenders without a significant improvement in performance, so discarded the idea.
 
-## App responsiveness
+## 📜 App responsiveness
 
 I made sure to make the app responsive, it supports a mobile view of a minimum width of 360px up to a 4K screen.
 
-<img src="" />
+### 📱 Mobile screen 
 
-## Solution review and possible improvements
+<img src="./screenshots/responsiveness-mobile-view.png" height="600px" />
+
+### 🖥️ 4K screen 
+
+<img src="./screenshots/responsiveness-4k.png" />
+
+## 💡 Solution review and possible improvements
+
+This solotion was conceived with reusability and performance in mind, however there's still space for improvements:
+
+❌ Fetching data inside useEffect hook is considered a bad practice and should be avoided when possible see: [You might not need an Effect](https://react.dev/learn/you-might-not-need-an-effect), react-query is a great alternative however I didn't want to cumbersome the project with 3rd party library and over-engineer a small project.
+
+Using state management library or ContextAPI: the app state grew rapidly and required a lot of *state lifting* and the App.jsx component became crowded with different states, ContextAPI was a choice at hand but I saw that the state was still manageable therefore avoided using it since it drags down components reusability.
+
+Implementing [useDifferedValue](https://react.dev/reference/react/useDeferredValue) hook could be opted for if the data was large enough.
+
+
+
 
