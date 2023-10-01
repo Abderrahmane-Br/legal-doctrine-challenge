@@ -1,4 +1,5 @@
 import { createElement } from "react";
+import PropTypes from "prop-types";
 
 function LoadingSkeleton({ type, modifier, content, samples }) {
 
@@ -16,4 +17,11 @@ function LoadingSkeleton({ type, modifier, content, samples }) {
         {elements}
     </>;
 }
-export default LoadingSkeleton
+export default LoadingSkeleton;
+
+LoadingSkeleton.propTypes = {
+    type: PropTypes.string,
+    modifier: PropTypes.string,
+    content: PropTypes.any,
+    samples: PropTypes.number
+}
