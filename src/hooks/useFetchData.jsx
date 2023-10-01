@@ -16,7 +16,6 @@ function useFetchData(url, transformer = null) {
                 setIsLoading(false);
                 if (transformer)
                     data = transformer(data);
-                console.log(data)
                 setData(data);
             })
             .catch(err => {
@@ -25,6 +24,6 @@ function useFetchData(url, transformer = null) {
             })
     }, [url])
 
-    return [data, setData, isLoading, error];
+    return [data, isLoading, error];
 }
 export default useFetchData;

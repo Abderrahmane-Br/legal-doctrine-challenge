@@ -4,6 +4,7 @@ import Table from "./components/table/Table";
 import SearchField from "./components/search-tool/SearchField";
 import { useState, useEffect } from "react";
 import Pagination from "./components/pagination/Pagination";
+import LoadingSkeleton from "./components/utils/LoadingSkeleton";
 
 import searchIcon from "./assets/images/search.svg";
 import powerIcon from "./assets/images/lightning-bolt.svg";
@@ -12,7 +13,7 @@ import "./styles/main.scss";
 
 function App() {
 
-	const [pokemonData] = useFetchData("./src/assets/data/pokemon.json", derivePower);
+	const [pokemonData, isLoading] = useFetchData("./src/assets/data/pokemon.json", derivePower);
 	const [searchResults, setSearchResults] = useState([]);
 	const [visibleRows, setVisibleRows] = useState([]);
 
@@ -21,6 +22,7 @@ function App() {
 
 	const minPower = visibleRows.reduce((a, b) => a < b.power ? a : b.power, Infinity);
 	const maxPower = visibleRows.reduce((a, b) => a > b.power ? a : b.power, -1);
+
 
 	useEffect(() => {
 		const results = search(pokemonData, nameQuery, powerQuery);
@@ -41,11 +43,27 @@ function App() {
 				placeholder="Power threshold"
 				setQuery={setPowerQuery}
 			/>
-			<div className="search-tool__indicator">Min power: {minPower !== Infinity ? minPower : "N/A"}</div>
-			<div className="search-tool__indicator">Max power: {maxPower !== -1 ? maxPower : "N/A"}</div>
+			{
+				isLoading
+					? <LoadingSkeleton type="div" modifier="--indicator" />
+					: <div className="search-tool__indicator">Min power: {minPower !== Infinity ? minPower : "N/A"}</div>
+			}
+			{
+				isLoading
+					? <LoadingSkeleton type="div" modifier="--indicator" />
+					: <div className="search-tool__indicator">Max power: {maxPower !== -1 ? maxPower : "N/A"}</div>
+			}
+
 		</SearchTool>
-		<Table data={visibleRows}></Table>
-		<Pagination data={searchResults} setVisibleRows={setVisibleRows} />
+		<Table data={visibleRows} isLoading={isLoading}></Table>
+
+		{(!isLoading && visibleRows.length === 0) && <div className="info-msg">No matching Pokemons were found!</div>}
+
+		{
+			isLoading
+				? <LoadingSkeleton type="div" modifier="--pagination" />
+				: <Pagination data={searchResults} setVisibleRows={setVisibleRows} />
+		}
 	</>;
 }
 
