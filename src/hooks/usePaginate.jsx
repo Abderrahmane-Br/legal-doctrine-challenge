@@ -9,7 +9,7 @@ function usePaginate(data, size = 5) {
     const [listSlice, setListSlice] = useState([]);
 
     const dataLen = data.length;
-    const start = (currentPage - 1) * pagSize + 1;
+    const start = (currentPage - 1) * pagSize + dataLen > 0 ? 1 : 0;
     const end = (currentPage * pagSize) > dataLen ? dataLen : (currentPage * pagSize);
 
     function nextPage() {
