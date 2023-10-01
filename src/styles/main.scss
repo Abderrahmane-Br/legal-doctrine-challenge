@@ -1,4 +1,4 @@
-@import './search-tool', './table';
+@import './search-tool', './table', './pagination';
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap');
 
 * {
@@ -20,4 +20,11 @@
         width: 100%;
     }
 
+}
+
+@media (max-width:620px) {
+    #root {
+        width: 100%;
+        padding: 0 5px;
+    }
 }

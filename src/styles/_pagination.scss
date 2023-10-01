@@ -1,0 +1,35 @@
+.pagination {
+    width: 100%;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    gap: 10px;
+    font-size: clamp(12px, 1vw, 2.2em);
+
+    &__page-nav {
+        height: 80%;
+        width: max(10px, 1vw);
+
+        &.--inactive {
+            filter: opacity(0.3);
+        }
+
+        &:hover:not(.--inactive) {
+            cursor: pointer;
+        }
+    }
+
+    &__size {
+        border: none;
+        outline: none;
+        font-size: clamp(10px, 0.9vw, 2em);
+    }
+
+}
+
+@media (max-width:620px) {
+    .pagination {
+        margin-top: 3vw;
+        justify-content: center;
+    }
+}

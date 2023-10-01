@@ -1,6 +1,8 @@
 import { useEffect } from "react";
 import usePaginate from "../../hooks/usePaginate";
 import PropTypes from "prop-types";
+import leftChevron from "../../assets/images/chevron-left.svg";
+import rightChevron from "../../assets/images/chevron-right.svg";
 
 function Pagination({ data, setVisibleRows }) {
     const {
@@ -25,18 +27,31 @@ function Pagination({ data, setVisibleRows }) {
     useEffect(() => { getFirstPage() }, [data]);
 
     return (
-        <div>
-            <span>Rows per page
-                <select value={pagSize} onChange={e => setPagSize(e.target.value)}>
-                    <option value="5">5</option>
-                    <option value="10">10</option>
-                    <option value="100">100</option>
-                </select>
-            </span>
+        <div className="pagination">
+            <span>Rows per page</span>
+            <select
+                value={pagSize}
+                className="pagination__size"
+                onChange={e => setPagSize(e.target.value)}>
+                <option value="5">5</option>
+                <option value="10">10</option>
+                <option value="20">20</option>
+                <option value="50">50</option>
+                <option value="100">100</option>
+            </select>
+
             <span> {`${start} - ${end} of ${dataLen}`} </span>
-            <span onClick={previousPage}>{isFirstPage ? " " : "<"} </span>
+            <img
+                src={leftChevron}
+                onClick={previousPage}
+                className={`pagination__page-nav ${isFirstPage ? "--inactive" : ""}`}
+            />
             <span>{currentPage}</span>
-            <span onClick={nextPage}> {isLastPage ? " " : ">"}</span>
+            <img
+                src={rightChevron}
+                onClick={nextPage}
+                className={`pagination__page-nav ${isLastPage ? "--inactive" : ""}`}
+            />
         </div>
     )
 }

@@ -1,6 +1,6 @@
 .pokemon-table {
     border: none;
-    border-radius: max(5px, .6em);
+    border-radius: max(5px, 1.1vw);
     box-shadow: 0px 7px 20px 3px rgb(237 237 237 / 72%);
     font-size: clamp(10px, 0.8vw, 2em);
     border-collapse: collapse;
@@ -12,6 +12,14 @@
         color: rgb(130, 114, 114);
         font-weight: 600;
         font-size: clamp(8px, 0.7vw, 1.8em);
+
+        th:first-child {
+            border-top-left-radius: max(5px, 1.1vw);
+        }
+
+        th:last-child {
+            border-top-right-radius: max(5px, 1.1vw);
+        }
     }
 
     th,
