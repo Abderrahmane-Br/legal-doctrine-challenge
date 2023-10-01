@@ -41,6 +41,8 @@ Stack:
 - :white_check_mark: Clear Search field button.
 - :white_check_mark: Autonavigate pagination on search.
 
+---
+
 ## 🚀 Performance
 
 ### 🚨 Lighthouse scores
@@ -89,6 +91,8 @@ I made sure to make the app responsive, it supports a mobile view of a minimum w
 ### 🖥️ 4K screen 
 
 <img src="./screenshots/responsiveness-4k.png" />
+
+---
 
 ## 💡 Solution review and possible improvements
 
