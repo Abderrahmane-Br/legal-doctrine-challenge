@@ -17,18 +17,20 @@ function SearchField({
     }
 
     return (
-        <div>
-            <img src={icon} />
+        <div className="search-tool__field">
+            <img src={icon} className="search-tool__field__icon" />
             <input
                 type="text"
                 name={name}
                 placeholder={placeholder}
                 value={value}
                 onChange={handleChange}
+                className="search-tool__field__input"
             />
             {value.length > 0 && <img
                 src={xIcon}
                 alt=""
+                className="search-tool__field__x-icon"
                 onClick={() => { setValue(""); setQuery("") }}
             />}
         </div>

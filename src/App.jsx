@@ -8,6 +8,8 @@ import Pagination from "./components/pagination/Pagination";
 import searchIcon from "./assets/images/search.svg";
 import powerIcon from "./assets/images/lightning-bolt.svg";
 
+import "./styles/main.scss";
+
 function App() {
 
 	const [pokemonData] = useFetchData("./src/assets/data/pokemon.json", derivePower);
@@ -39,8 +41,8 @@ function App() {
 				placeholder="Power threshold"
 				setQuery={setPowerQuery}
 			/>
-			<div><b>Min power:</b> {minPower !== Infinity ? minPower : "N/A"}</div>
-			<div><b>Max power:</b> {maxPower !== -1 ? maxPower : "N/A"}</div>
+			<div className="search-tool__indicator">Min power: {minPower !== Infinity ? minPower : "N/A"}</div>
+			<div className="search-tool__indicator">Max power: {maxPower !== -1 ? maxPower : "N/A"}</div>
 		</SearchTool>
 		<Table data={visibleRows}></Table>
 		<Pagination data={searchResults} setVisibleRows={setVisibleRows} />

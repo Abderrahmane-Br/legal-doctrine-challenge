@@ -2,7 +2,7 @@
 function SearchTool({ children }) {
 
     return (
-        <div>
+        <div className="search-tool">
             {children}
         </div>
     )
