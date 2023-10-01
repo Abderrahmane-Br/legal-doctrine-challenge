@@ -1,11 +1,14 @@
 # Legal Doctrine challenge
+---
 
 ## 📖 Table of Contents
 
-- [📖 Table of Contents](#-table-of-contents)
-- [📍 Overview](#-overview)
+- [📖 Table of Contents](#table-of-contents)
+- [📍 Overview](#overview)
 - [🤖 Features](#-features)
+- [🚀 Performance](#-performance)
 
+---
 ## 📍 Overview
 Completed Legal Doctrine assignement. 
 
@@ -14,7 +17,9 @@ Completed Legal Doctrine assignement.
 Stack:
 - ReactJS
 - Sass
-  
+
+---
+
 ## 🤖 Features
 **:red_circle: Required :**
 - :white_check_mark: Data fetching from **pokemon.json** file.
@@ -35,9 +40,12 @@ Stack:
 
 ## 🚀 Performance
 
-**🚨 Lighthouse scores**
+### 🚨 Lighthouse scores
 
 ### Page load score
 
+<img src="./screenshots/lighthouset-deployed-no-delay.png" />
+
 ### Timespan score
+<img src="./screenshots/lighthouse-timespan.png" />
 
