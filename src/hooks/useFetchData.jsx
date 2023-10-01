@@ -9,19 +9,21 @@ function useFetchData(url, transformer = null) {
 
 
     useEffect(() => {
-        fetch(url)
-            .then(res => res.json())
-            .then(data => {
+        setTimeout(() => {
+            fetch(url)
+                .then(res => res.json())
+                .then(data => {
 
-                setIsLoading(false);
-                if (transformer)
-                    data = transformer(data);
-                setData(data);
-            })
-            .catch(err => {
-                setIsLoading(false);
-                setError(err);
-            })
+                    setIsLoading(false);
+                    if (transformer)
+                        data = transformer(data);
+                    setData(data);
+                })
+                .catch(err => {
+                    setIsLoading(false);
+                    setError(err);
+                });
+        }, 2500)
     }, [url])
 
     return [data, isLoading, error];
