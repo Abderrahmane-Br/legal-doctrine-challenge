@@ -80,6 +80,8 @@ The choice of this mechanism boils down to :
 
 While building the **Search functionality** I attempted to debounce changing the table results on each key stroke, after implementing the debouncing it turned out it causes more component rerenders without a significant improvement in performance, so discarded the idea.
 
+---
+
 ## 📜 App responsiveness
 
 I made sure to make the app responsive, it supports a mobile view of a minimum width of 360px up to a 4K screen.
